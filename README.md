@@ -1,3 +1,7 @@
+# AS OF RIGHT NOW - I need to resolve an issue regarding CORS (Access-Control-Allow-Headers)
+- This means that you can not use this tool right now.
+Sorry!
+
 # e621.net Webcomic Reader
 
 A Simple viewer. Javascript Required!
