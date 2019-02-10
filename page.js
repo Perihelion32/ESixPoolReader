@@ -88,7 +88,6 @@ function httpGetAsync(url, callback) {
     }
     
     xmlHttp.open("GET", url, true); // true for asynchronous
-    xmlHttp.setRequestHeader("Access-Control-Allow-Origin", "*"); // Attempt at CORS
     xmlHttp.send(null);
 }
 
