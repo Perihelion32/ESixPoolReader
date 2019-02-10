@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>e621 Webcomic Reader - Page #</title>
+    <meta content="">
+    <script src="page.js"></script>
+    <noscript>Please enable JavaScript to properly utilize this tool!</noscript>
+    <link rel="stylesheet" href="stylesheet.css">
+  </head>
+  <body>
+  
+    <div class="notification_bar" id="mDivNotifyBar" >
+        <h4>Error:</h4>
+        <p id="mTextNotifyDescription">Error Text Here</p>
+        <a id="mButtonNotifyHide" onClick="notificationHide()" href="#">Click here to hide message</h>
+    </div>
+  
+    <img class="image" id="mImageView" src="" height=200 onClick="postNext()">
+
+    <div class="post_controls">
+        <nav>
+            <a id="mButtonFirst" onClick="postFirst()" href="#">&lt;&lt; First</a> |
+            <a id="mButtonPrevious" onClick="postPrevious()" href="#">&lt; Previous</a> |
+            <a id="mButtonNext" onClick="postNext()" href="#">Next &gt;</a> |
+            <a id="mButtonLast" onClick="postLast()" href="#">Last &gt;&gt;</a>
+        </nav>
+    </div>
+    
+    <div class="post_links">
+        <nav>
+            <a id="mButtonOriginalPost" href="#">Original Post</a> |
+            <a id="mButtonPostList" href="#">Post List</a> |
+            <a href="./index.html">Index</a>
+        </nav>
+    </div>
+    
+    <div class="description">
+        <h4>Description</h4>
+        <p id="mTextDescription"></p>
+        <h6 class="description_upvotes">
+            Upvotes: 
+            <b class="description_upvotes_counter" id="mValueUpvotes">0</b>
+        </h6>
+    </div>
+    
+    <div class="comments">
+        <h4>Comments</h4>
+        <!-- To edit comment layout: Please see page.js! -->
+        <ul class="comment_list" id="mListComments">
+        </ul>
+<!--        This message below will be shown when the API comment limit of 25 comments has been reached, 
+            I could load comments untill there are no more left, 
+            but won't because that will just spam the e6 servers with api calls! -->
+        <p class="comment_limit" id="mTextCommentLimit">Go to the Original post to view all comments.</p>
+    <div>
+  
+  </body>
+</html>
