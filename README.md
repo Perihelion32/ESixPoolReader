@@ -2,9 +2,14 @@
 
 A Simple viewer. Javascript Required!
 
+## How to install
+
+ - *Please lookup a guide to hosting a website*
+ - Make sure that the configuration has "Access-Control-Allow-Origin" set to "https://e621.net/\*" to allow outgoing connections to the e621.net APIs
+
 ## How to use
 
-- Go to: https://perihelion32.github.io/ESixPoolReader/
+- Go to the index page where you've hosted this site
 - Enter the pool id (Required) and the desired page index (Optional, starting at 0)
 - Start reading! :)
   - Use the buttons below the image (Labeled 'First', 'Previous', 'Next', 'Last') to navigate.
