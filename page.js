@@ -132,7 +132,8 @@ function httpGetAsync(url, callback) {
         }
     }
     
-    xhr.setRequestHeader("Accept", "application/json")
+    xhr.setRequestHeader("X-PINGOTHER", "pingpong");
+    xhr.setRequestHeader("Content-Type", "application/json")
     
     xhr.send();
 }
