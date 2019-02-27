@@ -78,11 +78,6 @@ function createCORSRequest(method, url) {
     if ("withCredentials" in xhr) {
         // Most browsers.
         xhr.open(method, url, true);
-        
-        xhr.setRequestHeader("Access-Control-Allow-Origin", "*"); // Attempt at CORS
-        xhr.setRequestHeader("Access-Control-Allow-Headers", "Content-Type");
-        
-        xhr.setRequestHeader("Accept", "application/json")
     } else if (typeof XDomainRequest != "undefined") {
         // IE8 & IE9
         xhr = new XDomainRequest();
@@ -136,6 +131,8 @@ function httpGetAsync(url, callback) {
             notificationShow("Error " + xhr.status + "\n" + xhr.responseText)            
         }
     }
+    
+    xhr.setRequestHeader("Accept", "application/json")
     
     xhr.send();
 }
