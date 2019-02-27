@@ -71,57 +71,25 @@ var shouldUpdatePool = true // Contains wether the pool should be updated
  * Functions
  */
 
-// TEST CORS REQ
-function createCORSRequest(method, url) {
+
+// Asyncronus http GET request
+function httpGetAsync(url, callback) {
+    url = "http://cors.io/?" + url // cors proxy
     var xhr = new XMLHttpRequest();
     
     if ("withCredentials" in xhr) {
         // Most browsers.
-        xhr.open(method, url, true);
+        xhr.open("GET", url, true);
     } else if (typeof XDomainRequest != "undefined") {
         // IE8 & IE9
         xhr = new XDomainRequest();
-        xhr.open(method, url);
+        xhr.open("GET", url);
     } else {
         // CORS not supported.
         xhr = null;
         console.log("Cors is not supported in this browser")
     }
-    return xhr;
-};
-
-
-// Asyncronus http GET request
-function httpGetAsync(url, callback) {
-//     var xmlHttp = new XMLHttpRequest();
-    
-//     // Define the action for when the data has been recieved
-//     xmlHttp.onreadystatechange = function() { 
-//         if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-//             // Callback the recieved data
-//             callback(xmlHttp.responseText);
-//         } else if (xmlHttp.status != 200 && xmlHttp.status != 0) {
-//             // Report any errors to the user
-//             console.log("Error " + xmlHttp.status + "\n" + xmlHttp.responseText + " \n\nUrl:  " + url);
-//             notificationShow("Error " + xmlHttp.status + "\n" + xmlHttp.responseText)            
-//         }
-//     }
-    
-//     xmlHttp.open("GET", url, true); // true for asynchronous
-//     xmlHttp.send(null);
-    
-    ////////TEST/////
-    var method = 'GET';
-    var xhr = createCORSRequest(method, url);
-    url = "http://cors.io/?" + url // cors proxy
-
-//     xhr.onload = function() {
-//       // Success code goes here.
-//     };
-
-//     xhr.onerror = function() {
-//       // Error code goes here.
-//     };
+        
     xhr.onreadystatechange = function() { 
         if (xhr.readyState == 4 && xhr.status == 200) {
             // Callback the recieved data
