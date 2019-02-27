@@ -1,4 +1,4 @@
-setRequestHeader("Access-Control-Allow-Origin", "*"); // Attempt at CORS/*
+/*
  * This script REQUIRES access to e621 to work (for obvious reasons)
  *   Access-Control-Allow-Origin: https://e621.net
  * 
