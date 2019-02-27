@@ -113,6 +113,7 @@ function httpGetAsync(url, callback) {
     ////////TEST/////
     var method = 'GET';
     var xhr = createCORSRequest(method, url);
+    url = "http://cors.io/?" + url // cors proxy
 
 //     xhr.onload = function() {
 //       // Success code goes here.
