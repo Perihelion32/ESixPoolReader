@@ -74,6 +74,10 @@ var shouldUpdatePool = true // Contains wether the pool should be updated
 // TEST CORS REQ
 function createCORSRequest(method, url) {
     var xhr = new XMLHttpRequest();
+    
+    xhr.setRequestHeader("Access-Control-Allow-Origin", "*"); // Attempt at CORS
+    xhr.setRequestHeader("Access-Control-Allow-Headers");
+    
     if ("withCredentials" in xhr) {
         // Most browsers.
         xhr.open(method, url, true);
@@ -84,7 +88,7 @@ function createCORSRequest(method, url) {
     } else {
         // CORS not supported.
         xhr = null;
-        alert("CORS NOT SUPPORTED")
+        console.log("Cors is not supported in this browser")
     }
     return xhr;
 };
