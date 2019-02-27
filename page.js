@@ -74,7 +74,7 @@ var shouldUpdatePool = true // Contains wether the pool should be updated
 
 // Asyncronus http GET request
 function httpGetAsync(url, callback) {
-    url = "http://cors.io/?" + url // cors proxy
+    url = "https://cors.io/?" + url // cors proxy
     var xhr = new XMLHttpRequest();
     
     if ("withCredentials" in xhr) {
