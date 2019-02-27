@@ -1,4 +1,4 @@
-/*
+setRequestHeader("Access-Control-Allow-Origin", "*"); // Attempt at CORS/*
  * This script REQUIRES access to e621 to work (for obvious reasons)
  *   Access-Control-Allow-Origin: https://e621.net
  * 
@@ -80,7 +80,7 @@ function createCORSRequest(method, url) {
         xhr.open(method, url, true);
         
         xhr.setRequestHeader("Access-Control-Allow-Origin", "*"); // Attempt at CORS
-        xhr.setRequestHeader("Access-Control-Allow-Headers");
+//         xhr.setRequestHeader("Access-Control-Allow-Headers");
     } else if (typeof XDomainRequest != "undefined") {
         // IE8 & IE9
         xhr = new XDomainRequest();
