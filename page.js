@@ -80,7 +80,9 @@ function createCORSRequest(method, url) {
         xhr.open(method, url, true);
         
         xhr.setRequestHeader("Access-Control-Allow-Origin", "*"); // Attempt at CORS
-//         xhr.setRequestHeader("Access-Control-Allow-Headers");
+        xhr.setRequestHeader("Access-Control-Allow-Headers", "Content-Type");
+        
+        xhr.setRequestHeader("Accept", "application/json")
     } else if (typeof XDomainRequest != "undefined") {
         // IE8 & IE9
         xhr = new XDomainRequest();
