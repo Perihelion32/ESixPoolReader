@@ -74,7 +74,7 @@ var shouldUpdatePool = true // Contains wether the pool should be updated
 // TEST CORS REQ
 function createCORSRequest(method, url) {
     var xhr = new XMLHttpRequest();
-    setRequestHeader("Access-Control-Allow-Origin", "*"); // Attempt at CORS
+    
     if ("withCredentials" in xhr) {
         // Most browsers.
         xhr.open(method, url, true);
