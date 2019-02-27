@@ -71,11 +71,55 @@ var shouldUpdatePool = true // Contains wether the pool should be updated
  * Functions
  */
 
+// TEST CORS REQ
+var createCORSRequest = function(method, url) {
+    var xhr = new XMLHttpRequest();
+    if ("withCredentials" in xhr) {
+        // Most browsers.
+        xhr.open(method, url, true);
+    } else if (typeof XDomainRequest != "undefined") {
+        // IE8 & IE9
+        xhr = new XDomainRequest();
+        xhr.open(method, url);
+    } else {
+        // CORS not supported.
+        xhr = null;
+        alert("CORS NOT SUPPORTED")
+    }
+    return xhr;
+};
+
+
 // Asyncronus http GET request
 function httpGetAsync(url, callback) {
-    var xmlHttp = new XMLHttpRequest();
+//     var xmlHttp = new XMLHttpRequest();
     
-    // Define the action for when the data has been recieved
+//     // Define the action for when the data has been recieved
+//     xmlHttp.onreadystatechange = function() { 
+//         if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+//             // Callback the recieved data
+//             callback(xmlHttp.responseText);
+//         } else if (xmlHttp.status != 200 && xmlHttp.status != 0) {
+//             // Report any errors to the user
+//             console.log("Error " + xmlHttp.status + "\n" + xmlHttp.responseText + " \n\nUrl:  " + url);
+//             notificationShow("Error " + xmlHttp.status + "\n" + xmlHttp.responseText)            
+//         }
+//     }
+    
+//     xmlHttp.open("GET", url, true); // true for asynchronous
+//     xmlHttp.send(null);
+    
+    ////////TEST/////
+    var method = 'GET';
+    var xhr = createCORSRequest(method, url);
+
+//     xhr.onload = function() {
+//       // Success code goes here.
+//     };
+
+//     xhr.onerror = function() {
+//       // Error code goes here.
+//     };
     xmlHttp.onreadystatechange = function() { 
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
             // Callback the recieved data
@@ -87,8 +131,7 @@ function httpGetAsync(url, callback) {
         }
     }
     
-    xmlHttp.open("GET", url, true); // true for asynchronous
-    xmlHttp.send(null);
+    xhr.send();
 }
 
 // A simple function to clamp a value (num) between two values (min, max)
