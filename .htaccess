@@ -1,4 +1,4 @@
-Header set Access-Control-Allow-Origin "https://e621.net"
+Header set Access-Control-Allow-Origin "*"
 Header set Access-Control-Allow-Methods "POST, GET, OPTIONS"
 Header set Access-Control-Allow-Headers "X-PINGOTHER, Content-Type"
 Header set Access-Control-Max-Age 86400
