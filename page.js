@@ -72,7 +72,7 @@ var shouldUpdatePool = true // Contains wether the pool should be updated
  */
 
 // TEST CORS REQ
-var createCORSRequest = function(method, url) {
+function createCORSRequest(method, url) {
     var xhr = new XMLHttpRequest();
     if ("withCredentials" in xhr) {
         // Most browsers.
@@ -120,14 +120,14 @@ function httpGetAsync(url, callback) {
 //     xhr.onerror = function() {
 //       // Error code goes here.
 //     };
-    xmlHttp.onreadystatechange = function() { 
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+    xhr.onreadystatechange = function() { 
+        if (xhr.readyState == 4 && xhr.status == 200) {
             // Callback the recieved data
-            callback(xmlHttp.responseText);
-        } else if (xmlHttp.status != 200 && xmlHttp.status != 0) {
+            callback(xhr.responseText);
+        } else if (xhr.status != 200 && xhr.status != 0) {
             // Report any errors to the user
-            console.log("Error " + xmlHttp.status + "\n" + xmlHttp.responseText + " \n\nUrl:  " + url);
-            notificationShow("Error " + xmlHttp.status + "\n" + xmlHttp.responseText)            
+            console.log("Error " + xhr.status + "\n" + xhr.responseText + " \n\nUrl:  " + url);
+            notificationShow("Error " + xhr.status + "\n" + xhr.responseText)            
         }
     }
     
