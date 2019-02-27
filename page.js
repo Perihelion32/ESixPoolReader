@@ -74,13 +74,13 @@ var shouldUpdatePool = true // Contains wether the pool should be updated
 // TEST CORS REQ
 function createCORSRequest(method, url) {
     var xhr = new XMLHttpRequest();
-    
-    xhr.setRequestHeader("Access-Control-Allow-Origin", "*"); // Attempt at CORS
-    xhr.setRequestHeader("Access-Control-Allow-Headers");
-    
+    setRequestHeader("Access-Control-Allow-Origin", "*"); // Attempt at CORS
     if ("withCredentials" in xhr) {
         // Most browsers.
         xhr.open(method, url, true);
+        
+        xhr.setRequestHeader("Access-Control-Allow-Origin", "*"); // Attempt at CORS
+        xhr.setRequestHeader("Access-Control-Allow-Headers");
     } else if (typeof XDomainRequest != "undefined") {
         // IE8 & IE9
         xhr = new XDomainRequest();
